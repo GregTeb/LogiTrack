@@ -1,21 +1,25 @@
+import { useState } from "react";
+import Header from "./Components/Header";
+import Footer from "./Components/Footer";
 import logo from "./logo.svg";
 import "./App.css";
 
 function App() {
+  const [isDarkMode, setIsDarkMode] = useState(false);
+
+  const toggleDarkMode = () => {
+    setIsDarkMode(!isDarkMode);
+  };
+
   return (
-    <div className="App">
+    <div className={`App ${isDarkMode ? "dark-mode" : ""}`}>
+      <button onClick={toggleDarkMode}>Toggle Theme</button>
+      <Header title="TG Logistic" />
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
-        <p>Hello, from me!</p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+        <p>TG Logistic</p>
       </header>
+      <Footer />
     </div>
   );
 }
