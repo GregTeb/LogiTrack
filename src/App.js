@@ -7,6 +7,7 @@ import Consult from "./Components/Consult";
 import logo from "./logo.svg";
 import sunIcon from "./img/sun.svg";
 import moonIcon from "./img/moon.svg";
+import heroBg from "./img/hero-bg.jpg";
 import "./App.css";
 
 function App() {
@@ -39,8 +40,18 @@ function App() {
         />
         {isDarkMode ? "Light Mode" : "Dark Mode"}
       </button>
+
       <Header title="TG Logistic" />
       <main>
+        <section className="hero-section">
+          <div className="hero-content">
+            <h1>Welcome to TG Logistic</h1>
+            <p>
+              Your trusted partner in logistics and transportation solutions.
+            </p>
+            <button className="hero-button">Get a Quete</button>
+          </div>
+        </section>
         <section>
           <h1>Our Service</h1>
           <Service
@@ -125,10 +136,6 @@ function App() {
           />
         </section>
       </main>
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>TG Logistic</p>
-      </header>
       <Footer />
     </div>
   );
