@@ -11,7 +11,7 @@ import heroBg from "./img/hero-bg.jpg";
 import "./App.css";
 
 function App() {
-  const [isDarkMode, setIsDarkMode] = useState(false);
+  const [isDarkMode, setIsDarkMode] = useState(true);
   const {
     register,
     handleSubmit,
@@ -31,17 +31,16 @@ function App() {
 
   return (
     <div className={`App ${isDarkMode ? "dark-mode" : ""}`}>
-      <button onClick={toggleDarkMode}>
-        Toggle Theme
-        <img
-          src={isDarkMode ? sunIcon : moonIcon}
-          alt={isDarkMode ? "Switch to Light Mode" : "Switch to Dark Mode"}
-          className="theme-icon"
-        />
-        {isDarkMode ? "Light Mode" : "Dark Mode"}
-      </button>
-
-      <Header title="TG Logistic" />
+      <Header title="TG Logistic">
+        <button onClick={toggleDarkMode} className="theme-toggle">
+          <img
+            src={isDarkMode ? sunIcon : moonIcon}
+            alt={isDarkMode ? "Switch to Light Mode" : "Switch to Dark Mode"}
+            className="theme-icon"
+          />
+          {isDarkMode ? "Light Mode" : "Dark Mode"}
+        </button>
+      </Header>
       <main>
         <section className="hero-section">
           <div className="hero-content">
@@ -49,7 +48,7 @@ function App() {
             <p>
               Your trusted partner in logistics and transportation solutions.
             </p>
-            <button className="hero-button">Get a Quete</button>
+            <button className="hero-button">Get a Quote</button>
           </div>
         </section>
         <section>
@@ -93,10 +92,10 @@ function App() {
                 })}
                 className="form-input"
               />
-              {errors.email && <p className="errors">{errors.email.massage}</p>}
+              {errors.email && <p className="errors">{errors.email.message}</p>}
             </div>
             <div className="form-group">
-              <lable htmlFor="phone">Phone</lable>
+              <label htmlFor="phone">Phone</label>
               <input
                 id="phone"
                 type="tel"
@@ -107,7 +106,7 @@ function App() {
                     message: "Phone number must be in the format +7XXXXXXXXXX",
                   },
                 })}
-                className="form-imput"
+                className="form-input"
               />
               {errors.phone && <p className="errors">{errors.phone.message}</p>}
             </div>
@@ -119,7 +118,7 @@ function App() {
                 className="form-input"
               />
               {errors.massage && (
-                <p className="errors">{errors.massage.massage}</p>
+                <p className="errors">{errors.message.message}</p>
               )}
             </div>
             <button type="submit" className="form-submit">

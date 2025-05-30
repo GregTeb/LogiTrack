@@ -1,9 +1,10 @@
 import "./Header.css";
 
-function Header({ title }) {
+function Header({ title, children }) {
   return (
     <header className="header">
-      <h1>TG Logistic</h1>
+      <h1>{title}</h1>
+      {children}
     </header>
   );
 }
