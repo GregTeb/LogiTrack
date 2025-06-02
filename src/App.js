@@ -25,13 +25,13 @@ function App() {
 
   const onSubmit = (data) => {
     console.log("Form submitted:", data);
-    alert("Thank you for your message! We will contact you soon.");
+    alert("Спасибо за ваше сообщение! Мы свяжемся с вами в ближайшее время.");
     reset();
   };
 
   return (
     <div className={`App ${isDarkMode ? "dark-mode" : ""}`}>
-      <Header title="TG Logistic">
+      <Header title="LogiTrack">
         <button onClick={toggleDarkMode} className="theme-toggle">
           <img
             src={isDarkMode ? sunIcon : moonIcon}
@@ -44,47 +44,47 @@ function App() {
       <main>
         <section className="hero-section">
           <div className="hero-content">
-            <h1>Welcome to TG Logistic</h1>
+            <h1>Добро пожаловать в LogiTrack</h1>
             <p>
-              Your trusted partner in logistics and transportation solutions.
+              Ваш надежный партнер в области логистики и транспортных решений.
             </p>
-            <button className="hero-button">Get a Quote</button>
+            <button className="hero-button">Получить расценки</button>
           </div>
         </section>
         <section>
           <h1>Our Service</h1>
           <Service
-            title="Logistic and Transportation"
-            description="Reliable delivery of all goods across the country"
+            title="Логистика и транспорт"
+            description="Надежная доставка всех товаров по всей стране"
           />
           <Service
-            title="Warehouse Storage"
-            description="Secure and efficient storage solution"
+            title="Складское хранение"
+            description="Безопасное и эффективное решение для хранения данных"
           />
           <Service
-            title="Custom Clearance"
-            description="Fast and compliant custom services"
+            title="Таможенное оформление"
+            description="Быстрые и соответствующие требованиям таможенные услуги"
           />
         </section>
         <section className="contact-section">
-          <h1>Contact us</h1>
+          <h1>Свяжитесь с нами</h1>
           <form onSubmit={handleSubmit(onSubmit)} className="contact-form">
             <div className="form-group">
-              <label htmlFor="name">Name</label>
+              <label htmlFor="Name">Имя</label>
               <input
-                id="name"
-                {...register("name", { required: "Name is required" })}
+                id="Name"
+                {...register("name", { required: "Имя обязательно" })}
                 className="form-input"
               />
               {errors.name && <p className="errors">{errors.name.message}</p>}
             </div>
             <div className="form-group">
-              <label htmlFor="email">Email</label>
+              <label htmlFor="email">Адрес электронной почты</label>
               <input
                 id="email"
                 type="email"
                 {...register("email", {
-                  required: "Email is required",
+                  required: "Требуется адрес электронной почты",
                   pattern: {
                     value: /^\S+@\S+\.\S+$/,
                     massage: "Invalid email address",
@@ -95,15 +95,16 @@ function App() {
               {errors.email && <p className="errors">{errors.email.message}</p>}
             </div>
             <div className="form-group">
-              <label htmlFor="phone">Phone</label>
+              <label htmlFor="phone">Номер телефон</label>
               <input
                 id="phone"
                 type="tel"
                 {...register("phone", {
-                  required: "Phone number is required",
+                  required: "Требуется номер телефона",
                   pattern: {
                     value: /^\+\d{1}\d{3}\d{3}\d{4}$/,
-                    message: "Phone number must be in the format +7XXXXXXXXXX",
+                    message:
+                      "Номер телефона должен быть в формате +7XXXXXXXXXX",
                   },
                 })}
                 className="form-input"
@@ -111,10 +112,10 @@ function App() {
               {errors.phone && <p className="errors">{errors.phone.message}</p>}
             </div>
             <div className="form-group">
-              <label htmlFor="message">Message</label>
+              <label htmlFor="message">Сообщение</label>
               <textarea
                 id="message"
-                {...register("message", { required: "Message is required" })}
+                {...register("message", { required: "Сообщение обязательно" })}
                 className="form-input"
               />
               {errors.massage && (
@@ -122,16 +123,16 @@ function App() {
               )}
             </div>
             <button type="submit" className="form-submit">
-              Send Message
+              Отправить сообщение
             </button>
           </form>
         </section>
         <section>
-          <h1>Logistics Consulting</h1>
+          <h1>Консалтинг в области логистики</h1>
           <Consult
-            title="Consulting services"
-            description="Provide a comprehensive consultancy service for any of our services including: haulage, 
-            storage, receiving and packing of goods"
+            title="Консалтинговые услуги"
+            description="Предоставляем комплексные консультационные услуги по любым из наших услуг, включая: перевозку, 
+            хранение, приемку и упаковку товаров"
           />
         </section>
       </main>
